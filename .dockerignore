@@ -10,3 +10,9 @@ __pycache__
 .gitignore
 .DS_Store
 node_modules
+# trim large data not needed for runtime
+data/documents_scrappy
+data/documents_refined
+# keep faiss store if you want retrieval at runtime
+# data/faiss_store
+# optional local testing assets
