@@ -3,6 +3,15 @@ const statusEl = document.getElementById("status");
 const summaryEl = document.getElementById("summary");
 const resultsEl = document.getElementById("results");
 const languageEl = document.getElementById("language");
+const askForm = document.getElementById("ask-form");
+const quickQuestionEl = document.getElementById("quick-question");
+const quickStatusEl = document.getElementById("ask-status");
+const quickAnswerEl = document.getElementById("quick-answer");
+const quickSourcesEl = document.getElementById("quick-sources");
+const quickChunksEl = document.getElementById("quick-chunks");
+
+let allResults = [];
+let currentFilter = "all";
 
 function clearResults() {
   summaryEl.textContent = "";
@@ -14,23 +23,34 @@ function createSummary(summary) {
   wrapper.className = "summary-grid";
 
   const items = [
-    ["Total", summary.total],
-    ["Right", summary.right],
-    ["Middle", summary.middle],
-    ["Wrong", summary.wrong],
-    ["Accuracy", `${(summary.accuracy * 100).toFixed(1)}%`],
+    { label: "Total", value: summary.total, filter: "all" },
+    { label: "Right", value: summary.right, filter: "right" },
+    { label: "Middle", value: summary.middle, filter: "middle" },
+    { label: "Wrong", value: summary.wrong, filter: "wrong" },
+    { label: "Accuracy", value: `${(summary.accuracy * 100).toFixed(1)}%` },
   ];
 
-  items.forEach(([label, value]) => {
-    const item = document.createElement("div");
-    item.className = "summary-item";
+  items.forEach((item) => {
+    const itemEl = document.createElement("div");
+    itemEl.className = "summary-item";
     const title = document.createElement("span");
-    title.textContent = label;
+    title.textContent = item.label;
     const val = document.createElement("strong");
-    val.textContent = value;
-    item.appendChild(title);
-    item.appendChild(val);
-    wrapper.appendChild(item);
+    val.textContent = item.value;
+    itemEl.appendChild(title);
+    itemEl.appendChild(val);
+    if (item.filter) {
+      itemEl.classList.add("filter");
+      itemEl.dataset.filter = item.filter;
+      if (item.filter === currentFilter) {
+        itemEl.classList.add("active");
+      }
+      itemEl.addEventListener("click", () => {
+        currentFilter = item.filter || "all";
+        renderFilteredResults();
+      });
+    }
+    wrapper.appendChild(itemEl);
   });
 
   summaryEl.appendChild(wrapper);
@@ -150,6 +170,23 @@ function renderResult(result, index) {
   return card;
 }
 
+function renderFilteredResults() {
+  resultsEl.textContent = "";
+  const filtered = allResults.filter((result) => {
+    if (currentFilter === "all") return true;
+    return (result.verdict || "").toLowerCase().startsWith(currentFilter);
+  });
+
+  filtered.forEach((result, index) => {
+    resultsEl.appendChild(renderResult(result, index));
+  });
+
+  const cards = summaryEl.querySelectorAll(".summary-item.filter");
+  cards.forEach((card) => {
+    card.classList.toggle("active", card.dataset.filter === currentFilter);
+  });
+}
+
 async function runEvaluation() {
   clearResults();
   statusEl.textContent = "Running...";
@@ -171,10 +208,10 @@ async function runEvaluation() {
       throw new Error("Invalid response");
     }
 
+    allResults = data.results || [];
+    currentFilter = "all";
     createSummary(data.summary);
-    data.results.forEach((result, index) => {
-      resultsEl.appendChild(renderResult(result, index));
-    });
+    renderFilteredResults();
 
     statusEl.textContent = "Done";
   } catch (err) {
@@ -184,4 +221,85 @@ async function runEvaluation() {
   }
 }
 
+function renderQuickSources(sources) {
+  quickSourcesEl.textContent = "";
+  if (!Array.isArray(sources) || sources.length === 0) {
+    return;
+  }
+  const label = document.createElement("span");
+  label.textContent = "Sources";
+  quickSourcesEl.appendChild(label);
+  quickSourcesEl.appendChild(renderSources(sources));
+}
+
+function renderQuickChunks(chunks) {
+  quickChunksEl.textContent = "";
+  const summary = document.createElement("summary");
+  summary.textContent = `Retrieved chunks (${chunks.length || 0})`;
+  quickChunksEl.appendChild(summary);
+
+  if (!Array.isArray(chunks) || chunks.length === 0) {
+    const empty = document.createElement("div");
+    empty.className = "empty-state";
+    empty.textContent = "No chunks returned.";
+    quickChunksEl.appendChild(empty);
+    return;
+  }
+
+  chunks.forEach((chunk) => {
+    const chunkEl = document.createElement("div");
+    chunkEl.className = "chunk";
+
+    const meta = document.createElement("div");
+    meta.className = "chunk-meta";
+    const score = chunk.score !== undefined ? chunk.score.toFixed(4) : "n/a";
+    meta.textContent = `source: ${chunk.source || "unknown"} | score: ${score} | chunk: ${chunk.chunk_index}`;
+
+    const text = document.createElement("p");
+    text.textContent = chunk.text || "";
+
+    chunkEl.appendChild(meta);
+    chunkEl.appendChild(text);
+    quickChunksEl.appendChild(chunkEl);
+  });
+}
+
+async function runQuickAsk(question) {
+  quickStatusEl.textContent = "Thinking...";
+  quickAnswerEl.textContent = "";
+  renderQuickSources([]);
+  renderQuickChunks([]);
+
+  try {
+    const res = await fetch("/api/ask", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ question }),
+    });
+
+    if (!res.ok) {
+      throw new Error(`Request failed: ${res.status}`);
+    }
+
+    const data = await res.json();
+    quickAnswerEl.textContent = data.answer || "No response.";
+    renderQuickSources(data.sources || []);
+    renderQuickChunks(data.chunks || []);
+    quickStatusEl.textContent = "Done";
+  } catch (err) {
+    quickAnswerEl.textContent = `Error: ${err.message}`;
+    quickStatusEl.textContent = "Error";
+  }
+}
+
 runButton.addEventListener("click", runEvaluation);
+
+askForm.addEventListener("submit", (event) => {
+  event.preventDefault();
+  const q = quickQuestionEl.value.trim();
+  if (!q) {
+    quickStatusEl.textContent = "Idle";
+    return;
+  }
+  runQuickAsk(q);
+});

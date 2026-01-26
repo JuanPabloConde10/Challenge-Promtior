@@ -27,6 +27,41 @@
           </div>
         </header>
 
+        <section class="quick-ask">
+          <div class="quick-header">
+            <div>
+              <h2>Quick question</h2>
+              <p class="subtitle">Ask the RAG and inspect the retrieved chunks.</p>
+            </div>
+          </div>
+          <form id="ask-form" class="form">
+            <label for="quick-question" class="label">Your question</label>
+            <div class="control-row">
+              <textarea
+                id="quick-question"
+                class="input"
+                rows="2"
+                placeholder="What services does Promtior offer?"
+                required
+              ></textarea>
+              <button class="button" type="submit">Ask</button>
+            </div>
+            <span id="ask-status" class="status">Idle</span>
+          </form>
+
+          <div class="quick-result" id="quick-result">
+            <div class="result-block">
+              <span>Answer</span>
+              <p id="quick-answer">Your answer will appear here.</p>
+            </div>
+            <div class="result-block" id="quick-sources"></div>
+            <details class="details" id="quick-chunks">
+              <summary>Retrieved chunks</summary>
+              <div class="empty-state">Run a question to see chunks.</div>
+            </details>
+          </div>
+        </section>
+
         <div class="controls">
           <label class="label" for="language">Dataset</label>
           <div class="control-row">

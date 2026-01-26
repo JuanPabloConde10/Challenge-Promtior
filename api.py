@@ -43,3 +43,35 @@ def run_evaluation(payload: dict | None = None):
         language = payload.get("language", language)
 
     return evaluate(language)
+
+
+@app.post("/api/ask")
+def ask_question(payload: dict | None = None):
+    question = ""
+    if payload and isinstance(payload, dict):
+        question = (payload.get("question") or "").strip()
+    if not question:
+        return {"answer": "", "sources": [], "chunks": []}
+
+    try:
+        output = rag_chain.invoke(question)
+    except Exception as exc:
+        return {"answer": "", "sources": [], "chunks": [], "error": str(exc)}
+
+    if isinstance(output, dict):
+        answer = (output.get("answer") or "").strip()
+        sources = output.get("sources") or []
+    else:
+        answer = str(output).strip()
+        sources = []
+
+    from rag.config import EMB_MODEL_NAME, TOP_K
+    from rag.embeddings import EmbeddingModel
+    from rag.retriever import search
+    from rag.store import load_store
+
+    index, meta = load_store()
+    embedder = EmbeddingModel(EMB_MODEL_NAME)
+    chunks = search(index, meta, embedder, question, k=TOP_K)
+
+    return {"answer": answer, "sources": sources, "chunks": chunks}
