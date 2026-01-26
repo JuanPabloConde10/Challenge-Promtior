@@ -1,0 +1,13 @@
+Our website includes the following main sections: Services, Case Studies, About Us, Careers, Contact, and Blog. A Privacy Policy is available at the bottom of the site.
+
+The Blog area includes an "All Posts" view plus topical categories: Bionic Organizations, Impact Stories, MindCraft AI, News, and Tech Talks.
+
+Recent and notable blog posts listed on the site:
+- "Building for ChatGPT: What We Learned Shipping an App with OpenAI's Apps SDK" — Tech Team, 15 Jan.
+- "Building Conversational Agents with Their Own Identity" — Tech Team, 10 Nov 2025.
+- "The Hidden Parameter That Cut Our LLM Response Times by 68%" — Tech Team, 6 Nov 2025.
+- "How Promtior Is Using Cursor Rules to Build Smarter With AI" — Tech Team, 10 Sep 2025.
+- "“AI is deeper than fire” — A Warning or a Call to Responsibility?" — Joaquín Ávalos, 18 Jun 2025.
+- "The AI Agent's Secret Weapon: Introducing the Model Context Protocol (MCP)" — Tech Team, 28 May 2025.
+
+For more details, navigate to the Blog section to view all posts and explore each category.

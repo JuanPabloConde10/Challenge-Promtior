@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Promtior RAG Assistant</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,400;6..72,600&family=Space+Grotesk:wght@400;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/static/styles.css" />
+  </head>
+  <body>
+    <main class="page">
+      <section class="card">
+        <header class="header">
+          <div class="header-top">
+            <div>
+              <p class="eyebrow">Promtior</p>
+              <h1>RAG Assistant</h1>
+              <p class="subtitle">Ask about the Promtior website content.</p>
+            </div>
+            <a class="link-button" href="/evaluation">Evaluation mode</a>
+          </div>
+        </header>
+
+        <div id="chat" class="chat">
+          <div class="message bot">
+            Hi! Ask me anything about Promtior and I will answer using the site content.
+          </div>
+        </div>
+
+        <form id="ask-form" class="form">
+          <label for="question" class="label">Your message</label>
+          <div class="input-row">
+            <textarea
+              id="question"
+              class="input"
+              rows="2"
+              placeholder="What services does Promtior offer?"
+              required
+            ></textarea>
+            <button class="button" type="submit">Send</button>
+          </div>
+          <span id="status" class="status">Idle</span>
+        </form>
+      </section>
+    </main>
+    <script src="/static/app.js"></script>
+  </body>
+</html>

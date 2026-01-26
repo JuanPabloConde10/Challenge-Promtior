@@ -1,0 +1,38 @@
+Case Studies and Clients
+
+We build generative AI–driven, tailored solutions that help companies boost their KPIs. Below are selected case studies showing how our work improves customer service, operational efficiency, and data governance across industries.
+
+Transform Your Business with Generative AI
+
+AI Revolution in Healthcare: Transforming Call Centers for Blue Cross Blue Shield
+Blue Cross Blue Shield (BCBS), a leading U.S. health insurance provider with more than 150,000 employees nationwide, faced significant call center inefficiencies. Agents struggled to navigate thousands of complex medical contracts and documents, which led to lengthy response times, delayed consultations, high turnover, and frustrated customers. A scalable, efficient solution was required to streamline operations in this document-heavy environment.
+
+We developed a cutting-edge AI system that leverages generative AI, vector databases, and LangChain to process complex medical inquiries. The solution provides accurate, context-aware responses at high speed, handling complex inquiries in under 40 seconds.
+
+The implementation produced dramatic results: average response times fell by 90%, dropping from roughly 10 minutes to about 30–60 seconds. Agent efficiency increased, enabling staff to handle many more inquiries per shift, and error rates declined thanks to more precise information retrieval and comprehension.
+
+AI-Powered Forestry Automation: Enhancing Operations for FAS
+FAS is a service company operating in the forestry sector, focused on commercial activity, logistics, and forestry production. They needed to simplify key operational processes such as truck tracking and digitizing delivery notes, improve the accuracy of manual data entry through AI, and provide their team with No Code tool training so they could manage automations themselves.
+
+Our approach combined internal team training on automation tools with the development and deployment of practical automations. Delivered automations included:
+- Truck tracking automation
+- Non-digital delivery note automation
+- Harvest data automation
+- Document management automation
+
+The project significantly improved the efficiency of manual tasks, reducing both time spent and error rates. The AI-powered delivery note automation was especially effective in digitizing a previously manual process. As the client summarized, “The new automations have allowed us to manage our operations more efficiently and with better structure.”
+
+Empowering Innovation: AI-Driven Automation and Data Governance for Handy
+Handy is a Uruguayan fintech founded in 2021 that provides payment solutions for small and medium-sized businesses. By simplifying payment collection, Handy enables merchants to focus on growth. The company is expected to surpass 30,000 clients by the end of the year and is becoming a key player in Uruguay’s electronic payment ecosystem.
+
+We partnered with Handy to deliver training on generative AI, implement AI-driven automation, and lead a data governance project. Work included executive workshops for the director team to align leadership with generative AI technologies, hands-on and one-on-one training for operational teams to support automation rollout, and automating multiple processes across different areas. We also managed end-to-end data governance—from ideation to implementation—including migrating all user accounts to a Microsoft-based system.
+
+Results were strong: manual tasks became significantly more efficient, saving time and reducing errors. The data governance implementation was seamless and received overwhelmingly positive feedback. The client now operates with a more intelligent, efficient, organized, and secure system.
+
+Client Perspective
+“Companies like Promptior offer an agile approach to incorporating Artificial Intelligence. Due to their still-small structure, they can move quickly and are constantly pushing the boundaries of the technological state of the art. They provide short cycles of trial and error, allowing them to leverage technology to achieve innovative solutions to real and profound problems in a short amount of time. This type of company brings a new, more agile, and less structured way of working, which can be just as effective as that of more established companies.” — Marcel Jankelevich, Channel Sales Azure
+
+Ready When You Are
+Help is just a click away. Contact us to discuss how generative AI can transform your business operations.
+
+Privacy Policy

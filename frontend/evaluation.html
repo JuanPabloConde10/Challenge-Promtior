@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Promtior RAG Evaluation</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,400;6..72,600&family=Space+Grotesk:wght@400;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/static/styles.css" />
+    <link rel="stylesheet" href="/static/evaluation.css" />
+  </head>
+  <body>
+    <main class="page evaluation-page">
+      <section class="card evaluation-card">
+        <header class="header">
+          <div class="header-top">
+            <div>
+              <p class="eyebrow">Promtior</p>
+              <h1>Evaluation mode</h1>
+              <p class="subtitle">Run the dataset and inspect the RAG results.</p>
+            </div>
+            <a class="link-button" href="/">Back to chat</a>
+          </div>
+        </header>
+
+        <div class="controls">
+          <label class="label" for="language">Dataset</label>
+          <div class="control-row">
+            <select id="language" class="select">
+              <option value="English">English (questions.csv)</option>
+              <option value="Spanish">Spanish (preguntas.csv)</option>
+            </select>
+            <button id="run-eval" class="button" type="button">Run evaluation</button>
+          </div>
+          <span id="status" class="status">Idle</span>
+        </div>
+
+        <section class="summary" id="summary"></section>
+        <section class="results" id="results"></section>
+      </section>
+    </main>
+    <script src="/static/evaluation.js"></script>
+  </body>
+</html>

@@ -1,0 +1,58 @@
+top of page
+Services
+Case Studies
+About Us
+Careers
+Contact
+Blog
+Case Studies
+Case studies and clients
+We build Gen AI-driven tailored solutions for companies to boost their KPIs.
+Let's Talk
+Transform Your Business with Generative AI
+AI Revolution in Healthcare: Transforming Call Centers for Blue Cross Blue Shield
+Client
+Challenge
+Solution
+Results
+Blue Cross Blue Shield, a leading U.S. health insurance provider, faced call center inefficiencies. With 150,000+ employees nationwide, BCBS needed a solution to streamline operations and improve customer service in their complex, document-heavy environment.
+BCBS's call center grappled with lengthy response times due to intricate medical documentation. Agents struggled to navigate thousands of contracts, leading to consultation delays, high turnover, and customer frustration. A scalable, efficient solution was urgently needed.
+We developed a cutting-edge AI system leveraging generative AI, vector databases, and LangChain. This innovative solution processes complex medical inquiries in under 40 seconds, providing accurate, context-aware responses and transforming call center operations.
+Our AI implementation slashed average response times by 90% - from 10 minutes to 30-60 seconds. Agent efficiency soared, enabling more inquiries handled per shift. Error rates plummeted thanks to AI-powered, precise information retrieval and comprehension.
+AI-Powered Forestry Revolution: Enhancing Operational Efficiency Through AI-Powered Automation
+Client
+Challenge
+Solution
+Results
+FAS is a service company for the forestry sector, specialized in creating and marketing raw materials.
+It is based on three pillars: commercial activity, logistics activity, and forestry production.
+FAS had the need to simplify essential operational processes, like truck tracking and digitizing delivery notes, by leveraging AI to enhance the accuracy of manual data entry and overall process efficiency.
+They also required to equip the team with training in No Code tools to empower efficient management and automation
+Internal team training in automation tools and development of automations.
+Automations:
+Truck tracking automation
+Non-digital delivery note automation
+Harvest data automation
+Document management automation
+The project delivered significant improvements in the efficiency of manual tasks, reducing time and errors. The AI-powered delivery note automation was particularly helpful in digitizing a previously manual process.
+The new automations have allowed us to manage our operations more efficiently and with better structure.
+Empowering Innovation: AI-Driven Automation and Data Governance for Handy
+Client
+Challenge
+Solution
+Results
+Handy is a Uruguayan fintech founded in 2021, specializing in payment solutions for small and medium-sized businesses. Handy simplifies payment collection, allowing merchants to focus on growing their businesses. The fintech is expected to surpass 30,000 clients by the end of the year, positioning itself as a key player in Uruguay's electronic payment ecosystem.
+Training on Generative AI
+AI-Driven Automation
+Lead Data Governance Project
+We initiated the project by delivering training workshops for the Director team to align them with generative AI technologies. For operational teams, we facilitated hands-on workshops and one-on-one training sessions to support the implementation of AI-driven automation. Key achievements included automating multiple processes across various areas. Additionally, we managed the end-to-end data governance project, from ideation to implementation, which included successfully migrating all user accounts to a Microsoft-based system.
+The project delivered excellent results. They saw significant efficiency improvements with manual tasks. This not only saved time but also reduced errors and streamlined our processes. The data governance implementation was seamless, and the feedback from their team has been overwhelmingly positive. They now have a more intelligent, efficient, organized, and secure system. ​
+Companies like Promptior offer an agile approach to incorporating Artificial Intelligence. Due to their still-small structure, they can move quickly and are constantly pushing the boundaries of the technological state of the art.
+They provide short cycles of trial and error, allowing them to leverage technology to achieve innovative solutions to real and profound problems in a short amount of time.
+This type of company brings a new, more agile, and less structured way of working, which can be just as effective as that of more established companies.
+Marcel Jankelevich - Channel Sales Azure
+Ready when you are
+HELP IS JUST A CLICK AWAY
+Contact us
+Privacy Policy
+bottom of page
