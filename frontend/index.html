@@ -14,20 +14,32 @@
   </head>
   <body>
     <main class="page">
-      <section class="card">
+      <section class="card chat-card">
         <header class="header">
           <div class="header-top">
-            <div>
+            <div class="header-copy">
               <p class="eyebrow">Promtior</p>
               <h1>RAG Assistant</h1>
               <p class="subtitle">Ask about the Promtior website content.</p>
+              <div class="chip-row">
+                <span class="chip">Grounded answers</span>
+                <span class="chip">Sources included</span>
+                <span class="chip">Fast retrieval</span>
+              </div>
             </div>
-            <a class="link-button" href="/evaluation">Evaluation mode</a>
+            <div class="header-actions">
+              <a class="link-button" href="/evaluation">Evaluation mode</a>
+              <div class="meta-card">
+                <span>Knowledge base</span>
+                <strong>Promtior website</strong>
+                <p>Answers include sources when available.</p>
+              </div>
+            </div>
           </div>
         </header>
 
         <div id="chat" class="chat">
-          <div class="message bot">
+          <div class="message bot intro">
             Hi! Ask me anything about Promtior and I will answer using the site content.
           </div>
         </div>
@@ -44,7 +56,10 @@
             ></textarea>
             <button class="button" type="submit">Send</button>
           </div>
-          <span id="status" class="status">Idle</span>
+          <div class="form-footer">
+            <span id="status" class="status">Idle</span>
+            <span class="form-hint">Shift + Enter for a new line.</span>
+          </div>
         </form>
       </section>
     </main>

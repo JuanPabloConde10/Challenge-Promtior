@@ -2,6 +2,10 @@
 
 A continuación se describe en detalle la solución propuesta, el proceso de diseño y las principales dificultades encontradas.
 
+## Importante
+
+En la sección de Testing se muestran los resultados con distintos modelos de embeddings, no se dejó desplegada la versión que utiliza estos modelos porque la biblioteca Sentence-Transformers pesa mucho y sobre pasa el free trail de Railways. En caso de desar verla se encuentra desplegada en otra branch de este mismo repositorio.
+
 ## Data extraction
 
 El primer paso consistió en recolectar la información del sitio de Promtior. Para ello se implementó el módulo `data_extraction.py`, que incluye tres funciones (`get_all_links`, `save_all_texts` y `refine_documents`) encargadas, en conjunto, de extraer y preparar el contenido de las páginas.
@@ -75,6 +79,14 @@ El frontend se mantiene intencionalmente simple y consta de dos vistas:
 * Una vista principal para interactuar con el chatbot.
 * Una vista de evaluación, donde se puede realizar una pregunta y ver qué chunks fueron recuperados. Desde ahí también se puede ejecutar la evaluación sobre el dataset y filtrar las preguntas respondidas correctamente e incorrectamente.
 
+## Diagrama 
+
+A continuación se presenta un diagrama que muestra a los componentes involucrados en la solución, e ilustra el flujo de la información desde el momento en que se hace la consulta hasta el momento de dar la respuesta al usuario.
+
+![alt text](image.png)
+
+Con el fin de mantener el diagrama simple se asumee que en el componente `FAISS` ya se encuentran los chunks con sus embeddings correspondientes.
+
 ## Tecnologías utilizadas
 
 Lista de tecnologías y su propósito:
@@ -91,12 +103,13 @@ Lista de tecnologías y su propósito:
 
 ## Dificultades
 
-El principal problema aparece en el deploy. La librería **Sentence-Transformers** incrementa significativamente el tamaño de la imagen de Docker, lo que aumenta el consumo de recursos y puede agotar la memoria disponible en el plan gratuito de Railway.
+El principal problema aparece en el deploy. La librería **Sentence-Transformers** incrementa significativamente el tamaño de la imagen de Docker, lo que aumenta el consumo de recursos y agota los recursos disponible en el plan gratuito de Railway.
 
-## Cosas a mejorar
+Esto me llevó a cambiar la logica del sistema ya que inicialmente se usaba el modelo `intfloat/multilingual-e5-large` para los embeddings, producción quedó deployado el sistema utilizando `text-embedding-3-large` de OpenAI para los embeddings.
+
+## Puntos de mejora
 
 * **Dataset**: ampliar cobertura, reducir ambigüedades y balancear mejor preguntas en español/inglés.
-* **Tiempos de respuesta**: optimizar el pipeline (caching, batch de embeddings, warmup, etc.).
 * **Retrieval**: evaluar enfoques más avanzados, por ejemplo:
 
   * **Cross-Encoder** para re-rank de los chunks recuperados.

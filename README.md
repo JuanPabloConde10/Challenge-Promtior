@@ -4,6 +4,8 @@ Chatbot RAG (LangChain + LangServe + FastAPI) sobre el contenido del sitio de Pr
 
 En este link se encuentra la documentación de la solución propuesta: [Ver documentación](docs/documentation.md)
 
+El link a la pagina desplegada en Railways es el siguiente: [Pagina](https://challenge-promtior-production.up.railway.app/)
+
 ## Requisitos
 - Python 3.11+
 - OPENAI_API_KEY configurada
