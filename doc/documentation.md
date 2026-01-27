@@ -4,7 +4,7 @@ A continuación se describe en detalle la solución propuesta, el proceso de dis
 
 ## Importante
 
-En la sección de Testing se muestran los resultados con distintos modelos de embeddings, no se dejó desplegada la versión que utiliza estos modelos porque la biblioteca Sentence-Transformers pesa mucho y sobre pasa el free trail de Railways. En caso de desar verla se encuentra desplegada en otra branch de este mismo repositorio.
+En la sección de Testing se muestran los resultados con distintos modelos de embeddings, no se dejó desplegada la versión que utiliza estos modelos porque la biblioteca Sentence-Transformers pesa mucho y sobrepasa el free trail de Railways. En caso de desar verla se encuentra desplegada en otra branch de este mismo repositorio.
 
 ## Data extraction
 
