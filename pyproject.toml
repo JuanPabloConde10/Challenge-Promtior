@@ -16,4 +16,5 @@ dependencies = [
     "uvicorn>=0.30.0",
     "sse-starlette>=3.2.0",
     "pandas>=3.0.0",
+    "transformers>=4.57.6",
 ]

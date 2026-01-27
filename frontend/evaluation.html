@@ -35,6 +35,25 @@
             </div>
           </div>
           <form id="ask-form" class="form">
+            <div class="control-row equal">
+              <div class="control">
+                <label for="quick-chunk-count" class="label">Chunks</label>
+                <select id="quick-chunk-count" class="select">
+                  <option value="3">3</option>
+                  <option value="5" selected>5</option>
+                  <option value="10">10</option>
+                </select>
+              </div>
+              <div class="control">
+                <label for="quick-embedding-model" class="label">Embedding model</label>
+                <select id="quick-embedding-model" class="select">
+                  <option value="text-embedding-3-large" selected>text-embedding-3-large</option>
+                  <option value="text-embedding-3-small">text-embedding-3-small</option>
+                  <option value="intfloat/multilingual-e5-large">intfloat/multilingual-e5-large</option>
+                  <option value="Qwen/Qwen3-Embedding-0.6B">Qwen/Qwen3-Embedding-0.6B</option>
+                </select>
+              </div>
+            </div>
             <label for="quick-question" class="label">Your question</label>
             <div class="control-row">
               <textarea

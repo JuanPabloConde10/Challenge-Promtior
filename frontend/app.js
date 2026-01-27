@@ -2,6 +2,8 @@ const form = document.getElementById("ask-form");
 const questionEl = document.getElementById("question");
 const statusEl = document.getElementById("status");
 const chatEl = document.getElementById("chat");
+const chunkEl = document.getElementById("chunk-count");
+const embeddingEl = document.getElementById("embedding-model");
 
 function addMessage(role, text) {
   const message = document.createElement("div");
@@ -51,7 +53,13 @@ async function ask(question) {
     const res = await fetch("/rag/invoke", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ input: question }),
+      body: JSON.stringify({
+        input: {
+          question,
+          k: Number(chunkEl.value),
+          embedding_model: embeddingEl.value,
+        },
+      }),
     });
 
     if (!res.ok) {

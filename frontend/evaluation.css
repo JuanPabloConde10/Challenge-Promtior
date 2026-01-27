@@ -44,6 +44,10 @@
   grid-template-columns: 1fr auto;
 }
 
+.control-row.equal {
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+}
+
 .select {
   border-radius: 12px;
   border: 1px solid rgba(31, 37, 33, 0.2);

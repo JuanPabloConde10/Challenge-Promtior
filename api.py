@@ -48,13 +48,22 @@ def run_evaluation(payload: dict | None = None):
 @app.post("/api/ask")
 def ask_question(payload: dict | None = None):
     question = ""
+    k = None
+    embedding_model = None
     if payload and isinstance(payload, dict):
         question = (payload.get("question") or "").strip()
+        k = payload.get("k")
+        embedding_model = payload.get("embedding_model")
     if not question:
         return {"answer": "", "sources": [], "chunks": []}
 
     try:
-        output = rag_chain.invoke(question)
+        input_payload = {"question": question}
+        if k is not None:
+            input_payload["k"] = k
+        if embedding_model:
+            input_payload["embedding_model"] = embedding_model
+        output = rag_chain.invoke(input_payload)
     except Exception as exc:
         return {"answer": "", "sources": [], "chunks": [], "error": str(exc)}
 
@@ -70,8 +79,10 @@ def ask_question(payload: dict | None = None):
     from rag.retriever import search
     from rag.store import load_store
 
-    index, meta = load_store()
-    embedder = EmbeddingModel(EMB_MODEL_NAME)
-    chunks = search(index, meta, embedder, question, k=TOP_K)
+    model_name = embedding_model or EMB_MODEL_NAME
+    top_k = int(k) if k is not None else TOP_K
+    index, meta = load_store(model_name=model_name)
+    embedder = EmbeddingModel(model_name)
+    chunks = search(index, meta, embedder, question, k=top_k)
 
     return {"answer": answer, "sources": sources, "chunks": chunks}

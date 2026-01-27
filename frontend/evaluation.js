@@ -9,6 +9,8 @@ const quickStatusEl = document.getElementById("ask-status");
 const quickAnswerEl = document.getElementById("quick-answer");
 const quickSourcesEl = document.getElementById("quick-sources");
 const quickChunksEl = document.getElementById("quick-chunks");
+const quickChunkEl = document.getElementById("quick-chunk-count");
+const quickEmbeddingEl = document.getElementById("quick-embedding-model");
 
 let allResults = [];
 let currentFilter = "all";
@@ -274,7 +276,11 @@ async function runQuickAsk(question) {
     const res = await fetch("/api/ask", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ question }),
+      body: JSON.stringify({
+        question,
+        k: Number(quickChunkEl.value),
+        embedding_model: quickEmbeddingEl.value,
+      }),
     });
 
     if (!res.ok) {

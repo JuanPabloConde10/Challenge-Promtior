@@ -49,8 +49,8 @@ def to_documents(results: list[dict]) -> list[Document]:
     return docs
 
 
-def retrieve(query: str, k: int = TOP_K) -> list[Document]:
-    index, meta = load_store()
-    embedder = EmbeddingModel(EMB_MODEL_NAME)
+def retrieve(query: str, k: int = TOP_K, model_name: str = EMB_MODEL_NAME) -> list[Document]:
+    index, meta = load_store(model_name=model_name)
+    embedder = EmbeddingModel(model_name)
     results = search(index, meta, embedder, query, k=k)
     return to_documents(results)

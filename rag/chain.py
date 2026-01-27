@@ -1,4 +1,5 @@
 from __future__ import annotations
+from rag.config import LLM_MODEL_NAME
 
 from langchain_core.prompts import ChatPromptTemplate
 from langchain_core.output_parsers import StrOutputParser
@@ -6,6 +7,7 @@ from langchain_core.runnables import RunnableLambda, RunnablePassthrough
 from langchain_openai import ChatOpenAI
 
 from rag.retriever import retrieve
+from rag.config import TOP_K, EMB_MODEL_NAME
 
 def format_docs(docs) -> str:
     parts = []
@@ -44,19 +46,30 @@ def build_prompt():
 
 
 def build_llm():
-    return ChatOpenAI(model="gpt-5-mini", temperature=0)
+    return ChatOpenAI(model=LLM_MODEL_NAME, temperature=0)
 
 
 def build_chain():
     prompt = build_prompt()
     llm = build_llm()
 
-    def build_inputs(question: str) -> dict:
-        docs = retrieve(question)
+    def build_inputs(input_data) -> dict:
+        if isinstance(input_data, dict):
+            question = (input_data.get("question") or "").strip()
+            k = input_data.get("k", TOP_K)
+            model_name = input_data.get("embedding_model", EMB_MODEL_NAME)
+        else:
+            question = str(input_data).strip()
+            k = TOP_K
+            model_name = EMB_MODEL_NAME
+
+        docs = retrieve(question, k=int(k), model_name=model_name)
         return {
             "question": question,
             "context": format_docs(docs),
             "sources": extract_sources(docs),
+            "embedding_model": model_name,
+            "k": k,
         }
 
     def only_prompt_inputs(data: dict) -> dict:
