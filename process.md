@@ -1,2 +1,0 @@
-- Lo primero que hice fue usar un script que dada la pagina base de promtior me devolviera todos los links que aparecian y los devolvieran. Luego yo elimine los links de redes sociales.
-- Lo siguiente que se hizo fue implementar el modulo rag
