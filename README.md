@@ -2,7 +2,7 @@
 
 Chatbot RAG (LangChain + LangServe + FastAPI) sobre el contenido del sitio de Promtior. Incluye UI web, modo evaluacion, y endpoints API.
 
-En este link se encuentra la documentación de la solución propuesta: [Ver documentación](docs/documentation.md)
+En este link se encuentra la documentación de la solución propuesta: [Ver documentación](doc/documentation.md)
 
 El link a la pagina desplegada en Railways es el siguiente: [Pagina](https://challenge-promtior-production.up.railway.app/)
 
