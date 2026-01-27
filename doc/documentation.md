@@ -107,7 +107,7 @@ Lista de tecnologías y su propósito:
 
 El principal problema aparece en el deploy. La librería **Sentence-Transformers** incrementa significativamente el tamaño de la imagen de Docker, lo que aumenta el consumo de recursos y agota los recursos disponible en el plan gratuito de Railway.
 
-Esto me llevó a cambiar la logica del sistema ya que inicialmente se usaba el modelo `intfloat/multilingual-e5-large` para los embeddings, producción quedó deployado el sistema utilizando `text-embedding-3-large` de OpenAI para los embeddings.
+Esto me llevó a cambiar la logica del sistema ya que inicialmente se usaba el modelo `intfloat/multilingual-e5-large` para los embeddings, en producción quedó deployado el sistema utilizando `text-embedding-3-large` de OpenAI.
 
 ## Puntos de mejora
 
