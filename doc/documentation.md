@@ -34,6 +34,8 @@ El sistema RAG sigue un enfoque clásico de **Bi-Encoder**. Ante una consulta, e
 
 En la configuración final se utiliza **K = 5**.
 
+Para implementar este modulo se utilizó la biblioteca LangChain + LangServe
+
 ## Testing
 
 Para evaluar el sistema se construye un dataset de **Q&A** basado en contenido real del sitio. Además, se incluyen preguntas para las cuales el sistema no debería tener información suficiente, con el objetivo de verificar que no invente respuestas.
