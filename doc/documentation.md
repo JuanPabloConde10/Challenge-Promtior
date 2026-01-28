@@ -1,4 +1,4 @@
-# Promtier-Challenge
+# Promtior-Challenge
 
 A continuación se describe en detalle la solución propuesta, el proceso de diseño y las principales dificultades encontradas.
 
